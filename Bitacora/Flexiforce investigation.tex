@@ -1,0 +1,138 @@
+\documentclass[11pt,a4paper,draft]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{imakeidx}
+\usepackage{biblatex}
+\setlength{\parindent}{0pt}
+\newcommand{\forceindent}{\leavevmode{\parindent=3em\indent}}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{David Altuve, 13\_10037@usb.ve}
+\title{FlexiForce Quantum Stage}
+\begin{document}
+\maketitle
+\tableofcontents
+\part{Details and considerations}
+\textbf{\emph{*Things for research:}}\\
+-Learn the application of the \emph{WKB} approximation.\\
+-D(E) in WBK approximation and Fermi Dirac Distribution (go deeper).\\
+-Investigate about the \emph{Holm and Kirschestein} solutions.\\
+-Image potential.\\
+-The Tunnel Equation.\\
+-Tunnel Resistivity.\\
+-Quantum Percolation.\\
+-Fermi Wavefactor.\\
+\\
+\textbf{\emph{*Things for fix:}}\\
+-Add the uneven surfaces to the PDMS.\\
+-Set an entire model with the diffuse distribution of nano-particles.\\
+-Evaluate the behaviour of the polymer with uneven surfaces, while it's in contact with the conductor plates.\\
+\\
+\textbf{\emph{*Things for calculate:}}\\-Calculate the tunnelling resistance.\\
+-Repeat the process for multidimensional ways.\\
+\\\textbf{\emph{*Things for propose:}}\\
+-Thermal Effect in the model.
+\part{Leonel's discussion about quantum problems in the FlexiForce Sensor}
+\section{Quantum Tunnel Effect Calculation}
+$\Rightarrow$Between the two electrodes we have \emph{\textbf{VFCR}}. First case, electrode vs nano-particle. Following the path through nano-particles, we have a \emph{\textbf{Contact Resistance}}, \emph{\textbf{RParticle1}}, \emph{\textbf{Rtunneling 1}}, \emph{\textbf{Rparticle 2}}, \emph{\textbf{Rtunneling 2}}... All of this in a series arrangement.\\
+\\$ \Rightarrow $Second case, tunnel effect directly applied between the electrode and the nano-particle. In this case we have a direct contact \emph{\textbf{nano-particle $\Leftrightarrow$ Electrode}}. Then we have a tunnel effect resistor \emph{\textbf{Rtun1-2}}, followed by \emph{\textbf{Rpar3}}, \emph{\textbf{Rtun3-4}}, \emph{\textbf{Rpar4}}... At least we could have a \emph{\textbf{Rcontact}} in the bottom of the sensor. 
+\subsection{Doubts About the Simulation}
+$\Rightarrow$ Eventually everyone of this topics should be considered as simulation parameters.
+\subsubsection{The air gap between the contact and the nano-particle doesn't make Tunnel Effect}
+$\Rightarrow$ In this case, we could have a probability to tunnel an electron sideways, there is an interesting complication in the model, and that is what Simmons Paper's ignore completely.
+\subsubsection{Which path is the dominant in the tunnelling conduction?}
+$\Rightarrow$ All paths are valid, but the current always will find the less resistant path.
+\subsubsection{Voltage over the Inter-Particle Gap}
+$\Rightarrow$ Tunnel resistance changes if the potential energy between the nano-particles is less than zero, more than zero or approximately zero (WKB approximation). \footnote{Equations 6,7,8 of: Underlying Physics of Conductive Polymer Composites and Force Sensing Resistors (FSRs) under Static Loading Conditions.}\\
+$\Rightarrow$ For calculate the I current vector, we shall make I= J(U,S)*A (where \emph{\textbf{U}} is the energy gap and \emph{\textbf{S}} is the separation between nano-particles). Then the question is which is the effective area for each conduction path. As an speculation, we can say that the effective area belongs to the minor nano-particle. 
+\section{Particle Inner Resistance}
+$\Rightarrow$ Any time that we work near of the spatial periodicity or temporal periodicity, so many phenomenons will appear as well. That's because at this level, we could see some kind of things as the particle interfering with itself, and acting as a guided medium. 
+\subsection{Conductance quantum}
+$\Rightarrow$ So... If we can say in fact that the resistance of the particle should be quantized. That is because there are some energy levels that the particle can take, and some others that it cannot take.\\
+$\Rightarrow$ As we know,for one particle. $\sigma= q*\mu n$ and \emph{\textbf{$ \mu n $}} depends of the drift velocity and the electric field generated between the nano-particles. Also, we can define through the Einstein Relationship that $ \mu n=Dn/Vt $ where \emph{\textbf{Dn}} is the diffusion constant, and \emph{\textbf{Vt}} is the thermal voltage.
+\\
+$\Rightarrow$ If we turn back over the idea of the wavelength. We can define that the quantized levels $ K_{f} $ belongs to the solution of the Schrödinger's equation, in fact $ K_{f} $ is the complex wave number.
+\begin{center}
+$   K_{f}=\dfrac{\sqrt{2mE_{f}}}{\hbar} $
+\end{center}
+$ K_{f} $ numbers only depends of the particle mass and the Fermi energy level (We shall have a special careful with the contacts \emph{\textbf{nano-particle$\Leftrightarrow$conductor}}.
+\section{Contact Resistance Reduction due Loading Conditions}
+While the applied force over the sensor is "0". we can see that there are some particles that stay in contact with the conductor plates. This disposition generates a contact resistance \emph{\textbf{Rcon}}. But there is an interesting phenomena, and happens when we apply a force over the sensor. This interaction upgrades the effective conductance area and we start to drive more current, this implies that the \emph{\textbf{Rcon}} is reduced. 
+\section{Calculation of Fermi wave vector in thin films} For this calculation we are based in the free-electron model, applied to a Cu corresponding structure.\\
+We can describe an electron state as:\\
+\begin{center}
+$ \displaystyle{ \varphi  }_{ k_{ x },{ k }_{ y },{ k }_{ z } }=\frac { 1 }{ \sqrt { { L }_{ x }{ L }_{ y } }  } { e }^{ i({ k }_{ x }*x+{ k }_{ y }*y) }\sqrt { \frac { 2 }{ { L }_{ z } }  } \sin { (\frac { \pi { \tau  }_{ z }z }{ { L }_{ Z } } ) }  $\\
+\end{center}
+\section{Characterizing Surface Roughness}
+One straight way to characterize a rough surface is by using the fractal dimensions. It's necessary to remember that fractal dimensions could be non-integer, then a 2.5 fractal dimension could give us a fairly rugged surfaces. Otherwise, using spatial frequencies could be another way to solve, describing the rough surface as a Fourier series.\\
+\begin{center}
+$\Psi (x)=A{ e }^{ \pm ikx }$
+\end{center}
+\part{Calculations}
+\section{Tunnel Effect in one dimension}
+Equations to use:\\
+-Schroedinger Equation:
+\begin{center}
+$ \left[ -\frac { { \hbar  }^{ 2 } }{ 2m } \frac { { d }^{ 2 } }{ d{ x }^{ 2 } } +V(x) \right] \Psi (x)=E\Psi (x) $\\
+\end{center}
+-Probability to find an electron in an energy level:
+\begin{center}
+$ \displaystyle D({ E }_{ x })={ e }^{ -\frac { 4\pi  }{ h } \int _{ x1 }^{ x2 }{ \sqrt { 2m[V(x)-{ E }_{ x }] } dx }  } $
+\end{center}
+-Number of electrons tunnelling through the barrier 1$ \rightarrow $2:\\
+\begin{center}
+$ \displaystyle { N }_{ 1 }=\frac { 1 }{ m } \int _{ 0 }^{ Em }{ n({ v }_{ x })D(E_{ x })d } E_{ x } $
+\end{center}
+-Number of electrons tunnelling through the barrier 2$ \rightarrow $1:\\
+\begin{center}
+$ \displaystyle { N }_{ 2 }=\frac { 4\pi { m }^{ 2 } }{ { h }^{ 3 } } \int _{ 0 }^{ Em }{ D(E_{ x })d } E_{ x }\int _{ 0 }^{ \infty  }{ f(E+eV)d } E_{ r } $
+\end{center}
+-Electron net flux:\\
+\begin{center}
+$\displaystyle { N }=\frac { 4\pi { m }^{ 2 } }{ { h }^{ 3 } } \int _{ 0 }^{ Em }{ D(E_{ x })d } E_{ x }\int _{ 0 }^{ \infty  }{ f(E)-f(E+eV)d } E_{ r } $
+\end{center}
+-Current density:\\
+\begin{center}
+$ J=\int _{ 0 }^{ Em }{ D({ E }_{ x })\zeta d } { E }_{ x } $\\ \begin{tiny}
+\emph{$\zeta$ means the Fermi-Dirac for E and E+eV}
+\end{tiny}
+\end{center}
+\section{Fractal dimension calculation} 
+
+$\rightarrow$ I have take the decision of model the surface as a fractal dimension compound, because it let us to evaluate random configurations of the surface roughness (one interesting problem remains in the capability to place the nanoparticles inside the random surface but it will be attended in the develop of the model). Then we use fractals to characterize the degree of roughness in a surface, we have fractal dimension profiles (works in 1 to 2 dimensions) and fractal dimension surfaces (works in 2 to 3 dimensions).
+
+\section{Schroedinger considerations}
+\forceindent The first assumption that we shall do is that the Schroedinger equation must be solved as a non linear equation, then, the solution will overcame as a series expansion of Planck's constant.\\
+\begin{center}
+    \begin{equation}
+        S=S0+\hbar S1+{ \hbar  }^{ 2 }S2+...
+    \end{equation}
+\end{center}
+\forceindent We will take the first two terms of that expansion series, that are closely dependant of the particle momentum.\\
+\forceindent At a least we have the next expression for the WKB approximation. We shall remember that we are approximating the solution of a non linear equation that depends of $\hbar^{n}$ and if "n" is big, the "n" term tends to 0.
+\begin{center}
+    \begin{equation}
+ \Psi \pm =\frac { 1 }{ \sqrt { p(x) }  } \left[ exp(\pm \frac { i }{ h } \int _{ xo }^{ x }{ p(x')dx'}  \right] 
+    \end{equation}
+\end{center}
+
+were, if we assume that the energy states are quantified: 
+
+\begin{center}
+    \begin{equation}
+\frac { i }{ h } \int _{ xo }^{ x }{ { p }_{ n }(x)dx } =\frac { i }{ h } \int _{ xo }^{ x }{ \sqrt { 2m[{ E }_{ n }-U(x)] } dx } 
+    \end{equation}
+\end{center}
+
+
+\forceindent Usually the general solution of the entire Schrodinger's equation using the WKB approximation is a junction of two solutions.\\
+
+\section{Weak form of the Schrodinger's Equation}
+
+\forceindent \index{Weak form}The additional complication in the model is that if we are using an approximation of Schrodinger's equation, we shall express this equation as the weak form of itself to generate a physics model. So we have to take the weak form of the particle momentum that is the N-differential part of the WKB approximation, and find the weak form using a test function.\\
+\forceindent Through the Galerkin approximation we can find the stiffness matrix, that is the advantage of using FEM because we just have to invert the matrix to have the elements enough to calculate the solution of the equation system.\\
+\forceindent 
+\end{document}
